@@ -1,0 +1,7 @@
+{
+  "name": "treasureHunt",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

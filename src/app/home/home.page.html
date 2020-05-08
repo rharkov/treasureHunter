@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="toolbar-wrapper">
+      <ion-button (click)="getOrientation()">Get orientation</ion-button>
+      <ion-button *ngIf="!treasureService.treasureIsBuried" color="success" class="dig" (click)="dig()" slot="end">Dig the treasure</ion-button>
+      <p> {{beta}} + {{gamma}}</p>
+      <ion-button *ngIf="treasureService.treasureIsBuried" color="danger" class="dig" (click)="digIt()" slot="end">Try to dig!!!</ion-button>
+      <ion-button (click)="resetDot()" slot="end">Reset Dot</ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <div class="wrapper">
+      <div class="distance" *ngIf="treasureService.treasureIsBuried">{{treasureService.distance}}</div>
+      <div class="sea">
+          <div class="sea__vertical">
+              <div class="sea__image"></div>
+          </div>
+      </div>
+  
+      <div class="map">
+        <div *ngIf="alertIsShow" class="alert"><div> End of island ! </div></div>
+        <canvas [width] = "654" [height] = "516" id="canvas" #canvas></canvas>
+        <canvas [width] = "654" [height] = "516" id="dot" #dot></canvas>
+  
+          <!--<img src="map.png" alt="">-->
+      </div>
+  </div>  
+  </div>
+</ion-content>
